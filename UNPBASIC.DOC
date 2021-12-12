@@ -1,0 +1,36 @@
+UNPBASIC.COM
+Unprotect Basic Version 1.10  12/21/1990  John Thomason
+ 
+Usage: UNPBASIC  filename1  [filename2]
+  filename1 = protected Basic file
+  filename2 = unprotected Basic file (default FIL.BAS)
+ 
+Entering UNPBASIC with no filename will display the above information.
+ 
+This utility removes the "protection" from GW-BASIC (R) files saved
+with the "P" option.  File size must be no larger than about 62K.
+ 
+The ability to unprotect Basic source files is a useful one because
+the Basic interpreter will not allow a protected file to be listed,
+printed, or modified.  Basic programmers who've misplaced their
+unprotected version of a program can use this utility to restore
+the source code.  Those who download protected Basic files from BBSs
+can use UNPBASIC to reveal potentially harmful code.
+ 
+This utility is simpler than other available unprotect schemes because
+one needs only the UNPBASIC.COM file.  Other routines call for the
+use of the Basic interpreter and Debug, along with a working knowledge
+of system-specific memory allocation.  Still other schemes employ a
+POKE or BLOAD after loading the protected program into the interpreter,
+which may or may not be allowed, depending on the interpreter.
+ 
+The program may be duplicated and used without restriction.
+Encryption method hacked by John Thomason, GEMail SWAN12.
+GW-BASIC is a registered trademark of the Microsoft Corporation.
+ 
+ 
+Changes from version 1.00:
+1. file length shortened
+2. EOF delimiter changed from FF1Ah to 001Ah for compatibility with
+   later versions of GW-BASIC.
+

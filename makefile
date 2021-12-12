@@ -1,0 +1,2 @@
+all: UNPBASIC.ASM
+	nasm -fbin -o UNPBASIC.COM UNPBASIC.ASM

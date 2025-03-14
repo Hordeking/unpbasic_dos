@@ -81,7 +81,7 @@ Unprotect_Begin:					;decoded = (encoded – CL) ^ Key1[CH – 1] ^ Key2[CL – 
 	CMP BX, DX			;Wrap it up if the current pointer is at the end of the source (pCur == pSrcEnd).
 	JZ Wrap_Up_And_Write
 
-	; This section sets BX = Key1(idxKey1-1), with idxKey2 is 0x01 thru 0x0d
+	; This section sets BX = Key1(idxKey1-1), with idxKey1, indexed 0x01 thru 0x0d
 	MOV BX, (Key1-1)				;This is Key1[-1]. We're going to be adding a 1-based index in a moment.
 	MOV AL, CH
 	CBW								;Essentially AX = (signed short) idxKey1
@@ -94,7 +94,7 @@ Unprotect_Begin:					;decoded = (encoded – CL) ^ Key1[CH – 1] ^ Key2[CL – 
 	XOR AL, byte [BX]				;AL = AL XOR Key1[CH-1]
 	PUSH AX							;Save (AL - CH) XOR Key1[CH-1] for later.
 
-	; This section sets BX = Key2(idxKey2-1), with idxKey2 is 0x01 thru 0x0b
+	; This section sets BX = Key2(idxKey2-1), with idxKey2, indexed 0x01 thru 0x0b
 	MOV BX, (Key2-1)				;This is Key2[-1]. We're going to be adding a 1-based index in a moment.
 	MOV AL, CL
 	CBW								;Essentially, AX = (signed short) idxKey2
